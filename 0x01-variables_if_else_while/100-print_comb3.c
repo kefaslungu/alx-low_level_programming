@@ -9,25 +9,23 @@
  */
 int main(void)
 {
-	int kefas, lungu;
+	int digit1, digit2;
 
-	for (kefas = '0'; kefas < '9'; kefas++)
+	for (digit1 = 0; digit1 < 9; digit1++)
 	{
-		for (lungu = kefas + 1; lungu <= '9'; lungu++)
+		for (digit2 = digit1 + 1; digit2 < 10; digit2++)
 		{
-			if (lungu != kefas)
-			{
-				putchar(kefas);
-				putchar(lungu);
+			putchar((digit1 % 10) + '0');
+			putchar((digit2 % 10) + '0');
 
-				if (kefas == '8' && lungu == '9')
-					continue;
-
-				putchar(',');
-				putchar(' ');
-			}
+			if (digit1 == 8 && digit2 == 9)
+				continue;
+			
+			putchar(',');
+			putchar(' ');
 		}
 	}
+
 	putchar('\n');
 
 	return (0);
