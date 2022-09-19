@@ -5,19 +5,17 @@
  * Return: string and in reverse
  */
 	void rev_string(char *s)
+{
+	int len = 0, i = 0;
+	char kdb;
+
+	while (s[len] != '\0')
+		len++;
+
+	while (i < len--)
 	{
-		char rev = s[0];
-		int fcounter = 0;
-		int i;
-
-		while (s[fcounter] != '\0')
-			fcounter++;
-
-		for (i = 0; i < fcounter; i++)
-		{
-			fcounter--;
-			rev = s[i];
-			s[i] = s[fcounter];
-			s[fcounter] = rev;
-		}
+		kdb = s[i];
+		s[i++] = s[len];
+		s[len] = kdb;
 	}
+}
