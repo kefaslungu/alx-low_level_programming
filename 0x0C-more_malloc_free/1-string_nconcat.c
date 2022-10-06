@@ -1,49 +1,49 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "main.h"
+#include <stdlib.h>
+
 /**
- * string_nconcat - len of 1st str, len of 2nd str, if n < 2nd, 2nd = n
- * 2nd + 1st = total len, malloc + null byte, loop to insert into temp array
- * @s1: input one
- * @s2: input two
- * @n: s2's number of bytes
- * Return: 0
- */
+* string_nconcat - concatenates two strings
+*
+* @s1: first string
+* @s2: second string
+* @n: the number of bytes to include of @s2
+*
+* Return: newly allocated space in memory;
+* NULL if the function fails
+*/
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *array;
-	unsigned int kdb, kjl, cs, py;
+	char *ar;
+	unsigned int i = 0;
+	unsigned int j = 0;
+	unsigned int m;
+	unsigned int p;
+	unsigned int k = 0;
+	unsigned int len;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
+	while (s1[i])
+		i++;
+	while (s2[j])
+		j++;
+	if (j > n)
+		j = n;
 
-	for (kdb = 0; s1[kdb] != '\0'; kdb++)
-	{
-	}
+	len = i + j;
 
-	for (kjl = 0; s2[kjl] != '\0'; kjl++)
-	{
-	}
-
-	if (n < kjl)
-		kjl = n;
-
-	kjl += kdb;
-	array = malloc(sizeof(char *) * (kjl + 1));
-
-	if (array == NULL)
+	ar = malloc(sizeof(char) * (len + 1));
+	if (ar == NULL)
 		return (NULL);
 
-	for (cs = 0; cs < kdb; cs++)
-		array[cs] = s1[cs];
-	for (py = 0; cs < kjl; py++)
-	{
-		array[cs] = s2[py];
-		cs++;
-	}
-	cs++;
-	array[cs] = '\0';
-	return (array);
+	for (p = 0; p < i; p++)
+		ar[k++] = s1[p];
+	for (m = 0; m < j; m++)
+		ar[k++] = s2[m];
+
+	ar[k] = '\0';
+	return (ar);
 }
